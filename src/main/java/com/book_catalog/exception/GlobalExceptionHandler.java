@@ -75,7 +75,7 @@ public class GlobalExceptionHandler {
             }
         }
         Map<String, String> errorMap = new HashMap<>();
-        errorMap.put("error", ex.getMessage());
+        errorMap.put("error", "Invalid request payload");
         ApiResponse<String> response = ApiResponse.<String>builder()
                 .message("Invalid request format.")
                 .success(false)

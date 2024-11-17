@@ -1,10 +1,19 @@
 package com.book_catalog.service;
 
 import com.book_catalog.dto.request.BookDto;
+import com.book_catalog.dto.request.UpdateBookDto;
+import com.book_catalog.exception.BadRequestException;
 import com.book_catalog.model.Book;
 import com.book_catalog.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -14,6 +23,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
+    // creates a book
     public Book createBook(BookDto bookDto) {
         Book book = new Book(
                 bookDto.getName(),
@@ -23,7 +33,32 @@ public class BookService {
         return bookRepository.save(book);
     }
 
+    // gets all book
     public Iterable<Book> getBooks() {
         return bookRepository.findAll();
+    }
+
+    // gets a single book by id
+    public Book getBook(Long id) {
+        Optional<Book> book = bookRepository.findById(id);
+        return book.orElseGet(() -> null);
+    }
+
+    // update a single book
+    public Book updatebook(UpdateBookDto bookDto, Book book) throws ParseException {
+        boolean canUpdate = false;
+        if (bookDto.getAuthor() != null) {book.setAuthor(bookDto.getAuthor()); canUpdate = true;}
+        if (bookDto.getName() != null) {book.setName(bookDto.getName()); canUpdate = true;}
+        if (bookDto.getIsbnNumber() != null) {book.setIsbnNumber(bookDto.getIsbnNumber()); canUpdate = true;}
+        if (bookDto.getPrice() != null) {book.setPrice(bookDto.getPrice()); canUpdate = true;}
+        if (bookDto.getType() != null) {book.setType(bookDto.getType()); canUpdate = true;}
+        if (bookDto.getDate() != null) {
+            book.setDate(bookDto.getDate());
+            canUpdate = true;
+        }
+        if (!canUpdate) {
+            throw new BadRequestException("Request body is empty.");
+        }
+        return bookRepository.save(book);
     }
 }
