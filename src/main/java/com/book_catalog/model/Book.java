@@ -15,18 +15,18 @@ public class Book extends BaseEntity {
     private String name;
     private String isbnNumber;
     private String author;
-    private Date date;
+    private Date publishedDate;
     private Double price;
     private String type;
 
     public Book() {
     }
 
-    public Book(String name, String isbnNumber, String author, Date date, Double price, String type) {
+    public Book(String name, String isbnNumber, String author, Date publishedDate, Double price, String type) {
         this.name = name;
         this.isbnNumber = isbnNumber;
         this.author = author;
-        this.date = date;
+        this.publishedDate = publishedDate;
         this.price = price;
         this.type = type;
     }

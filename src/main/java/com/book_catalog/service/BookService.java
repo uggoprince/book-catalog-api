@@ -29,7 +29,7 @@ public class BookService {
                 bookDto.getName(),
                 bookDto.getIsbnNumber(),
                 bookDto.getAuthor(),
-                bookDto.getDate(), bookDto.getPrice(), bookDto.getType());
+                bookDto.getPublishedDate(), bookDto.getPrice(), bookDto.getType());
         return bookRepository.save(book);
     }
 
@@ -52,8 +52,8 @@ public class BookService {
         if (bookDto.getIsbnNumber() != null) {book.setIsbnNumber(bookDto.getIsbnNumber()); canUpdate = true;}
         if (bookDto.getPrice() != null) {book.setPrice(bookDto.getPrice()); canUpdate = true;}
         if (bookDto.getType() != null) {book.setType(bookDto.getType()); canUpdate = true;}
-        if (bookDto.getDate() != null) {
-            book.setDate(bookDto.getDate());
+        if (bookDto.getPublishedDate() != null) {
+            book.setPublishedDate(bookDto.getPublishedDate());
             canUpdate = true;
         }
         if (!canUpdate) {

@@ -24,8 +24,8 @@ public class UpdateBookDto {
     private String author;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @Past(message = "Date must be in the past.")
-    private Date date;
+    @Past(message = "Published Date must be in the past.")
+    private Date publishedDate;
 
     @ValidPrice(message = "Price is invalid")
     private Double price;
