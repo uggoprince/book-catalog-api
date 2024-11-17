@@ -27,6 +27,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    // creates a book
     @PostMapping("")
     public ResponseEntity createBook(@Valid @RequestBody BookDto bookDto) {
         Book book = bookService.createBook(bookDto);
@@ -38,6 +39,7 @@ public class BookController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    // gets all books
     @GetMapping()
     public ResponseEntity getBooks() {
         Iterable<Book> books = bookService.getBooks();
@@ -49,6 +51,7 @@ public class BookController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    // updates a single book
     @PutMapping("/{id}")
     public ResponseEntity updateBook(@ValidId @PathVariable Long id,
                                      @Valid @RequestBody UpdateBookDto bookDto) throws ParseException {
@@ -61,6 +64,21 @@ public class BookController {
                 .message("Book successfully updated.")
                 .success(true)
                 .data(updatedBook)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    // deletes a single book
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteBook(@ValidId @PathVariable Long id) {
+        Book book = bookService.getBook(id);
+        if (book == null) {
+            throw new ResourceNotFoundException("Book not found.");
+        }
+        bookService.deleteBook(id);
+        ApiResponse<Object> response = ApiResponse.builder()
+                .message("Book Successfully deleted.")
+                .success(true)
                 .build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
