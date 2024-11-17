@@ -19,9 +19,9 @@ public class BookDto {
     private String author;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    @NotNull(message = "Published date is required.")
-    @Past(message = "Published date must be in the past.")
-    private Date publishedDate;
+    @NotNull(message = "Publish date is required.")
+    @Past(message = "Publish date must be in the past.")
+    private Date publishDate;
 
     @NotNull(message = "Price is required.")
     @DecimalMin(value = "1.0", message = "Price must be greater than or equal to 1.0")

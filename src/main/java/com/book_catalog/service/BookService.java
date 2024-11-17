@@ -9,10 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -29,7 +25,7 @@ public class BookService {
                 bookDto.getName(),
                 bookDto.getIsbnNumber(),
                 bookDto.getAuthor(),
-                bookDto.getPublishedDate(), bookDto.getPrice(), bookDto.getType());
+                bookDto.getPublishDate(), bookDto.getPrice(), bookDto.getType());
         return bookRepository.save(book);
     }
 
@@ -52,8 +48,8 @@ public class BookService {
         if (bookDto.getIsbnNumber() != null) {book.setIsbnNumber(bookDto.getIsbnNumber()); canUpdate = true;}
         if (bookDto.getPrice() != null) {book.setPrice(bookDto.getPrice()); canUpdate = true;}
         if (bookDto.getType() != null) {book.setType(bookDto.getType()); canUpdate = true;}
-        if (bookDto.getPublishedDate() != null) {
-            book.setPublishedDate(bookDto.getPublishedDate());
+        if (bookDto.getPublishDate() != null) {
+            book.setPublishDate(bookDto.getPublishDate());
             canUpdate = true;
         }
         if (!canUpdate) {
