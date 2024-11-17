@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
+@Builder
 @Table(name = "books")
 public class Book extends BaseEntity {
     private String name;

@@ -20,13 +20,10 @@ public class BookService {
                 bookDto.getIsbnNumber(),
                 bookDto.getAuthor(),
                 bookDto.getDate(), bookDto.getPrice(), bookDto.getType());
-//                .name(bookDto.getName())
-//                .isbnNumber(bookDto.getIsbnNumber())
-//                .author(bookDto.getAuthor())
-//                .date(bookDto.getDate())
-//                .price(bookDto.getPrice())
-//                .type(bookDto.getType())
-//                .build();
         return bookRepository.save(book);
+    }
+
+    public Iterable<Book> getBooks() {
+        return bookRepository.findAll();
     }
 }
