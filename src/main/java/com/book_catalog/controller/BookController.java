@@ -20,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/books")
 @Validated
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BookController {
     private BookService bookService;
     @Autowired
