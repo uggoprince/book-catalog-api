@@ -13,7 +13,7 @@ To run the service on your computer clone the repository. After that, execute th
 
 This can easily be done with IntelliJ IDE. Or on your CMD, cd into the directory and run the commands.
 
-The default port is `3000` already set in the application.properties file. So to access the api go to [localhost:3000/api](localhost:3000/api)
+The default port is `3000` already set in the application.properties file. So to access the api go to [http://localhost:3000/api](http://localhost:3000/api)
 
 
 Available endpoints are:
