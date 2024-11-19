@@ -1,18 +1,20 @@
 # book-catalog-api
 ### A catalogue service that provides a list of all catalogued books, add new books, update existing information and remove books.
 
+It uses the h2 in-memory, so you do not have to worry about database settings and installation.
+
+Java Version: `1.8`
 
 ## How to run the service:
-### To run the service on your computer clone the repository. After that, execute the following maven commands on your cmd:
+To run the service on your computer clone the repository. After that, execute the following maven commands on your cmd:
 
-- mvn install to install dependencies and build project
-- mvn spring-boot:run to run the server
+- `mvn install` to install dependencies and build project
+- `mvn spring-boot:run` to run the server
 
-It uses the h2 in-memory so you do not have to worry about database settings and installation.
+This can easily be done with IntelliJ IDE. Or on your CMD, cd into the directory and run the commands.
 
-This can easily be done with IntelliJ IDE. Without using the commands.
+The default port is `3000` already set in the application.properties file. So to access the api go to [localhost:3000/api](localhost:3000/api)
 
-The default port is *3000* already set in the application.properties file. So to access the api go to *localhost:3000*
 
 Available endpoints are:
 
