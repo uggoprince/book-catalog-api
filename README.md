@@ -5,7 +5,7 @@ It uses the h2 in-memory, so you do not have to worry about database settings an
 
 Java Version: `1.8`
 
-## How to run the service:
+### How to run the service:
 To run the service on your computer clone the repository. After that, execute the following maven commands on your cmd:
 
 - `mvn install` to install dependencies and build project
