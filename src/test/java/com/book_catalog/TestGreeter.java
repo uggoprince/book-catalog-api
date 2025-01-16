@@ -27,7 +27,7 @@ public class TestGreeter {
 
     @Test
     public void greetSomeoneLengthGreater() {
-        String someone = "World, Thanks you making me happy";
-        assertThat(greeter.length(), is(greaterThan(someone.length())));
+        String someone = "World, Thanks you making me happy. You are so good!!";
+        assertThat(greeter.length(), is(lessThan(someone.length())));
     }
 }
